@@ -1,0 +1,35 @@
+name: finn_utils
+description: "A new Flutter plugin project providing utilities like Lombok-style code generation."
+version: 0.0.1
+homepage: https://github.com/your-repo/finn_utils # Add an appropriate homepage or repository link.
+
+environment:
+  sdk: ">=3.5.4 <4.0.0" # Ensure the Dart SDK range is clear.
+  flutter: ">=3.3.0 <4.0.0" # Match the Flutter version requirements.
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.0.2
+  analyzer:
+  source_gen: 
+  build:  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  build_runner: ^2.3.3
+  build_config: 
+
+
+builders:
+  lambok:
+    import: "package:finn_utils/utils/builds/lambok/builder.dart"
+    builder_factories: ["lambokBuilder"]
+    build_extensions: {".dart": [".dart.g.dart"]}
+    auto_apply: dependents
+    build_to: source
+    applies_builders: ["source_gen|combining_builder"]
+
+     

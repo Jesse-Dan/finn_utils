@@ -1,0 +1,17 @@
+# build.yaml
+targets:
+  $default:
+    builders:
+      finn_utils|lambok:
+        generate_for:
+          - lib/**/*.dart 
+        enabled: true
+
+builders:
+  lambok:
+    import: 'package:finn_utils/utils/builds/lambok/builder.dart'
+    builder_factories: ['lambokBuilder']
+    build_extensions: {".dart": [".g.dart"]}
+    build_to: source
+    auto_apply: dependents
+
